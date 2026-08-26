@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#031a2d"/>
+      <stop offset="0.62" stop-color="#07324f"/>
+      <stop offset="1" stop-color="#075474"/>
+    </linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ffffff" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="65" y="95" width="1070" height="355" rx="18" fill="#ffffff" filter="url(#shadow)"/>
+  <image x="140" y="122" width="920" height="300" preserveAspectRatio="xMidYMid meet" xlink:href="quant-strata-logo.png"/>
+  <rect x="430" y="500" width="340" height="3" rx="1.5" fill="#42bfe5"/>
+  <text x="600" y="552" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="6">BUSINESS ADVISORY + ANALYTICS</text>
+  <text x="600" y="594" text-anchor="middle" fill="#a9cfdf" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600" letter-spacing="2.5">PHILADELPHIA · VETERAN &amp; MINORITY-OWNED</text>
+</svg>

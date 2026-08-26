@@ -13,10 +13,13 @@ const nav = [
   ["About", "about"],
 ];
 
-const brand = (prefix) => `<a class="brand" href="${prefix}"><span class="brand-mark"><i></i><i></i><i></i></span><span class="brand-type"><strong>QUANT STRATA</strong><small>ADVISORY + ANALYTICS</small></span></a>`;
+const brand = (prefix) => `<a class="brand" href="${prefix}" aria-label="Quant Strata Home"><img class="brand-logo" src="${prefix}assets/quant-strata-logo.png" alt="Quant Strata"></a>`;
 
 function shell(page) {
   const prefix = page.depth ? "../" : "./";
+  const canonicalPath = page.route ? `${page.route}/` : "";
+  const canonicalUrl = `https://jevans-qs.github.io/quant-strata-website/${canonicalPath}`;
+  const socialImage = "https://jevans-qs.github.io/quant-strata-website/assets/social-preview.png";
   const links = nav.map(([label, route]) => `<a href="${prefix}${route}/">${label}</a>`).join("");
   return `<!doctype html>
 <html lang="en">
@@ -26,6 +29,23 @@ function shell(page) {
   <title>${page.title}</title>
   <meta name="description" content="${page.description}">
   <meta name="theme-color" content="#06243c">
+  <link rel="canonical" href="${canonicalUrl}">
+  <link rel="icon" type="image/png" sizes="32x32" href="${prefix}assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="${prefix}assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="${prefix}assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quant Strata">
+  <meta property="og:title" content="${page.title}">
+  <meta property="og:description" content="${page.description}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${socialImage}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Quant Strata Business Advisory and Analytics">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${page.title}">
+  <meta name="twitter:description" content="${page.description}">
+  <meta name="twitter:image" content="${socialImage}">
   <link rel="stylesheet" href="${prefix}styles.css">
 </head>
 <body>
@@ -44,4 +64,5 @@ for (const page of pages) {
 }
 
 await cp(new URL("../src/styles.css", import.meta.url), new URL("styles.css", out));
+await cp(new URL("../src/assets/", import.meta.url), new URL("assets/", out), { recursive: true });
 await writeFile(new URL(".nojekyll", out), "");
