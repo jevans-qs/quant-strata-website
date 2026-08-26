@@ -13,13 +13,15 @@ const nav = [
   ["About", "about"],
 ];
 
+const siteBase = "https://q-strata.com/";
+
 const brand = (prefix) => `<a class="brand" href="${prefix}" aria-label="Quant Strata Home"><img class="brand-logo" src="${prefix}assets/quant-strata-logo.png" alt="Quant Strata"></a>`;
 
 function shell(page) {
   const prefix = page.depth ? "../" : "./";
   const canonicalPath = page.route ? `${page.route}/` : "";
-  const canonicalUrl = `https://jevans-qs.github.io/quant-strata-website/${canonicalPath}`;
-  const socialImage = "https://jevans-qs.github.io/quant-strata-website/assets/social-preview.png";
+  const canonicalUrl = `${siteBase}${canonicalPath}`;
+  const socialImage = `${siteBase}assets/social-preview.png`;
   const links = nav.map(([label, route]) => `<a href="${prefix}${route}/">${label}</a>`).join("");
   return `<!doctype html>
 <html lang="en">
@@ -66,3 +68,4 @@ for (const page of pages) {
 await cp(new URL("../src/styles.css", import.meta.url), new URL("styles.css", out));
 await cp(new URL("../src/assets/", import.meta.url), new URL("assets/", out), { recursive: true });
 await writeFile(new URL(".nojekyll", out), "");
+await writeFile(new URL("CNAME", out), "q-strata.com\n");
