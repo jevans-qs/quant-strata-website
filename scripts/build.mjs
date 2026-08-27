@@ -70,7 +70,7 @@ function shell(page) {
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="${socialImage}">
   <script type="application/ld+json">${organizationSchema}</script>
-  <link rel="stylesheet" href="${prefix}styles.css?v=20260827-2">
+  <link rel="stylesheet" href="${prefix}styles.css?v=20260827-3">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to Main Content</a>
@@ -94,7 +94,7 @@ await writeFile(new URL("CNAME", out), "q-strata.com\n");
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map((page) => `  <url><loc>${siteBase}${page.route ? `${page.route}/` : ""}</loc><lastmod>2026-08-26</lastmod></url>`).join("\n")}
+${pages.map((page) => `  <url><loc>${siteBase}${page.route ? `${page.route}/` : ""}</loc><lastmod>2026-08-27</lastmod></url>`).join("\n")}
 </urlset>\n`;
 await writeFile(new URL("sitemap.xml", out), sitemap);
 await writeFile(new URL("robots.txt", out), `User-agent: *\nAllow: /\nSitemap: ${siteBase}sitemap.xml\n`);
