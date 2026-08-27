@@ -24,7 +24,7 @@ const cards = (items, className = "capability-grid") => `
 
 const home = `
   <section class="brand-banner" aria-label="Quant Strata Business Advisory and Analytics in Philadelphia">
-    <img src="./assets/quant-strata-philadelphia-banner.webp" width="2048" height="1152" alt="Quant Strata Business Advisory and Analytics with the Philadelphia skyline" fetchpriority="high" decoding="async">
+    <img src="./assets/quant-strata-philadelphia-banner-v2.webp" width="2048" height="1152" alt="Quant Strata Business Advisory and Analytics with the Philadelphia skyline" fetchpriority="high" decoding="async">
   </section>
   <section class="hero">
     <div class="hero-grid page-width">
