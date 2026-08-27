@@ -70,7 +70,7 @@ function shell(page) {
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="${socialImage}">
   <script type="application/ld+json">${organizationSchema}</script>
-  <link rel="stylesheet" href="${prefix}styles.css">
+  <link rel="stylesheet" href="${prefix}styles.css?v=20260827-2">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to Main Content</a>

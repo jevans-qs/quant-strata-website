@@ -35,8 +35,8 @@ a { color: inherit; text-decoration: none; }
 .mobile-menu nav a { padding: 11px 6px; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 650; }
 .mobile-menu summary::marker { color: var(--cyan-500); }
 
-.brand-banner { position: relative; overflow: hidden; background: #f7f9fb; border-bottom: 1px solid rgba(9,48,75,.12); }
-.brand-banner img { display: block; width: 100%; height: clamp(430px,45vw,650px); object-fit: cover; object-position: 50% 63%; }
+.brand-banner { position: relative; display: grid; place-items: center; overflow: hidden; width: 100%; background: #f7f9fb; border-bottom: 1px solid rgba(9,48,75,.12); }
+.brand-banner img { display: block; width: 100%; max-width: 2048px; height: clamp(430px,45vw,650px); margin-inline: auto; object-fit: cover; object-position: 50% 63%; }
 
 .hero { position: relative; padding: 86px 0 80px; background: radial-gradient(circle at 84% 20%, rgba(43,181,223,.16), transparent 35%), linear-gradient(120deg,var(--navy-950),#07324f 64%,#074768); color: #fff; }
 .hero::after { content: ""; position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to right,transparent,black); }
