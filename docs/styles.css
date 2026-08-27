@@ -35,6 +35,9 @@ a { color: inherit; text-decoration: none; }
 .mobile-menu nav a { padding: 11px 6px; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 650; }
 .mobile-menu summary::marker { color: var(--cyan-500); }
 
+.brand-banner { position: relative; overflow: hidden; background: #f7f9fb; border-bottom: 1px solid rgba(9,48,75,.12); }
+.brand-banner img { display: block; width: 100%; height: clamp(430px,45vw,650px); object-fit: cover; object-position: 50% 63%; }
+
 .hero { position: relative; padding: 86px 0 80px; background: radial-gradient(circle at 84% 20%, rgba(43,181,223,.16), transparent 35%), linear-gradient(120deg,var(--navy-950),#07324f 64%,#074768); color: #fff; }
 .hero::after { content: ""; position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to right,transparent,black); }
 .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.04fr .96fr; gap: 70px; align-items: center; }
@@ -208,6 +211,7 @@ a { color: inherit; text-decoration: none; }
   .page-width { width: min(100% - 30px,1180px); }
   .site-header { height: 72px; }
   .brand-logo { width: 172px; }
+  .brand-banner img { height: auto; aspect-ratio: 16 / 9; object-fit: contain; object-position: center; }
   .hero { padding: 65px 0; }
   .hero-grid { gap: 46px; }
   .hero h1 { font-size: 47px; }
