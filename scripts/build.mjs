@@ -24,7 +24,7 @@ const organizationSchema = JSON.stringify({
   logo: `${siteBase}assets/quant-strata-logo.png`,
   image: `${siteBase}assets/social-preview.png`,
   email: "info@q-strata.com",
-  telephone: "+1-215-278-3518",
+  telephone: "+1-215-730-8626",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Philadelphia",
@@ -76,7 +76,7 @@ function shell(page) {
   <a class="skip-link" href="#main">Skip to Main Content</a>
   <header class="site-header"><div class="page-width header-inner">${brand(prefix)}<nav class="desktop-nav" aria-label="Primary Navigation">${links}</nav><a class="header-cta" href="${prefix}contact/">Let’s Talk →</a><details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile Navigation">${links}<a href="${prefix}contact/">Contact</a></nav></details></div></header>
   <main id="main">${page.content}</main>
-  <footer class="site-footer"><div class="page-width footer-grid"><div class="footer-brand">${brand(prefix)}<p>Business Advisory and Advanced Analytics for organizations that need clarity, accountability, and decision-ready insight.</p><span>Veteran & Minority-Owned · Philadelphia, PA</span></div><div><h2>Capabilities</h2><a href="${prefix}business-advisory/">Business Advisory</a><a href="${prefix}analytics-technology/">Analytics & Technology</a><a href="${prefix}industries/">Industries</a><a href="${prefix}insights/">Insights</a></div><div><h2>Company</h2><a href="${prefix}about/">About Quant Strata</a><a href="${prefix}contact/">Contact</a><a href="mailto:info@q-strata.com">info@q-strata.com</a><a href="tel:2152783518">(215) 278-3518</a><span class="footer-location">Philadelphia, PA</span></div></div><div class="page-width footer-legal"><p>© 2026 Quant Strata LLC. All Rights Reserved.</p><p>Quant Strata is a business consulting firm, not a CPA firm or law firm. Services do not include audits, attest services, legal opinions, or unauthorized representation before taxing authorities.</p></div></footer>
+  <footer class="site-footer"><div class="page-width footer-grid"><div class="footer-brand">${brand(prefix)}<p>Business Advisory and Advanced Analytics for organizations that need clarity, accountability, and decision-ready insight.</p><span>Veteran & Minority-Owned · Philadelphia, PA</span></div><div><h2>Capabilities</h2><a href="${prefix}business-advisory/">Business Advisory</a><a href="${prefix}analytics-technology/">Analytics & Technology</a><a href="${prefix}industries/">Industries</a><a href="${prefix}insights/">Insights</a></div><div><h2>Company</h2><a href="${prefix}about/">About Quant Strata</a><a href="${prefix}contact/">Contact</a><a href="mailto:info@q-strata.com">info@q-strata.com</a><a href="tel:2157308626">(215) 730-8626</a><span class="footer-location">Philadelphia, PA</span></div></div><div class="page-width footer-legal"><p>© 2026 Quant Strata LLC. All Rights Reserved.</p><p>Quant Strata is a business consulting firm, not a CPA firm or law firm. Services do not include audits, attest services, legal opinions, or unauthorized representation before taxing authorities.</p></div></footer>
 </body>
 </html>`;
 }
