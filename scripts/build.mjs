@@ -8,6 +8,7 @@ await mkdir(out, { recursive: true });
 const nav = [
   ["Business Advisory", "business-advisory"],
   ["Analytics & Technology", "analytics-technology"],
+  ["Services", "services"],
   ["Industries", "industries"],
   ["Insights", "insights"],
   ["About", "about"],
@@ -70,13 +71,13 @@ function shell(page) {
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="${socialImage}">
   <script type="application/ld+json">${organizationSchema}</script>
-  <link rel="stylesheet" href="${prefix}styles.css?v=20260827-3">
+  <link rel="stylesheet" href="${prefix}styles.css?v=20260902-1">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to Main Content</a>
   <header class="site-header"><div class="page-width header-inner">${brand(prefix)}<nav class="desktop-nav" aria-label="Primary Navigation">${links}</nav><a class="header-cta" href="${prefix}contact/">Let’s Talk →</a><details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile Navigation">${links}<a href="${prefix}contact/">Contact</a></nav></details></div></header>
   <main id="main">${page.content}</main>
-  <footer class="site-footer"><div class="page-width footer-grid"><div class="footer-brand">${brand(prefix)}<p>Business Advisory and Advanced Analytics for organizations that need clarity, accountability, and decision-ready insight.</p><span>Veteran & Minority-Owned · Philadelphia, PA</span></div><div><h2>Capabilities</h2><a href="${prefix}business-advisory/">Business Advisory</a><a href="${prefix}analytics-technology/">Analytics & Technology</a><a href="${prefix}industries/">Industries</a><a href="${prefix}insights/">Insights</a></div><div><h2>Company</h2><a href="${prefix}about/">About Quant Strata</a><a href="${prefix}contact/">Contact</a><a href="mailto:info@q-strata.com">info@q-strata.com</a><a href="tel:2157308626">(215) 730-8626</a><span class="footer-location">Philadelphia, PA</span></div></div><div class="page-width footer-legal"><p>© 2026 Quant Strata LLC. All Rights Reserved.</p><p>Quant Strata is a business consulting firm, not a CPA firm or law firm. Services do not include audits, attest services, legal opinions, or unauthorized representation before taxing authorities.</p></div></footer>
+  <footer class="site-footer"><div class="page-width footer-grid"><div class="footer-brand">${brand(prefix)}<p>Business Advisory and Advanced Analytics for organizations that need clarity, accountability, and decision-ready insight.</p><span>Veteran & Minority-Owned · Philadelphia, PA</span></div><div><h2>Capabilities</h2><a href="${prefix}managed-performance-intelligence/">Managed Performance Intelligence</a><a href="${prefix}public-program-procurement-analytics/">Public Program &amp; Procurement Analytics</a><a href="${prefix}feasibility-economic-strategic-analysis/">Feasibility &amp; Strategic Analysis</a><a href="${prefix}business-advisory/">Business Advisory</a><a href="${prefix}analytics-technology/">Analytics &amp; Technology</a></div><div><h2>Company</h2><a href="${prefix}about/">About Quant Strata</a><a href="${prefix}contact/">Contact</a><a href="mailto:info@q-strata.com">info@q-strata.com</a><a href="tel:2157308626">(215) 730-8626</a><span class="footer-location">Philadelphia, PA</span></div></div><div class="page-width footer-legal"><p>© 2026 Quant Strata LLC. All Rights Reserved.</p><p>Quant Strata is a business consulting firm, not a CPA firm or law firm. Services do not include audits, attest services, legal opinions, or unauthorized representation before taxing authorities.</p></div></footer>
 </body>
 </html>`;
 }
@@ -94,7 +95,7 @@ await writeFile(new URL("CNAME", out), "q-strata.com\n");
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map((page) => `  <url><loc>${siteBase}${page.route ? `${page.route}/` : ""}</loc><lastmod>2026-08-27</lastmod></url>`).join("\n")}
+${pages.map((page) => `  <url><loc>${siteBase}${page.route ? `${page.route}/` : ""}</loc><lastmod>2026-09-02</lastmod></url>`).join("\n")}
 </urlset>\n`;
 await writeFile(new URL("sitemap.xml", out), sitemap);
 await writeFile(new URL("robots.txt", out), `User-agent: *\nAllow: /\nSitemap: ${siteBase}sitemap.xml\n`);
