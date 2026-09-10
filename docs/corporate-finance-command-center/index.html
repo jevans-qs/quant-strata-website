@@ -6,23 +6,23 @@
 <title>Corporate Finance Decision Command Center | Quant Strata</title>
 <meta name="description" content="Interactive synthetic-data executive finance demo by Quant Strata: performance, variance, working capital, forecasting and management decisions.">
 <meta name="theme-color" content="#06243c">
-<link rel="stylesheet" href="app.css?v=20260910-1">
+<link rel="stylesheet" href="app.css?v=20260910-2">
 </head>
 <body>
 <a href="#main" class="skip">Skip to main content</a>
 <header class="topbar"><div class="shell topbar-inner">
   <a class="brand" href="../" aria-label="Quant Strata home"><img src="../assets/quant-strata-logo.png" alt="Quant Strata"></a>
   <div class="demo-title">Corporate Finance Decision Command Center</div><div class="spacer"></div>
-  <span class="demo-badge">Synthetic Demo</span><a class="back-link" href="../managed-performance-intelligence/">← Managed Finance & Performance Intelligence</a>
+  <span class="demo-badge">Synthetic Demo</span><a class="back-link" href="../managed-performance-intelligence/">← Managed Finance &amp; Performance Intelligence</a>
 </div></header>
 <section class="hero"><div class="shell hero-grid">
   <div><p class="eyebrow">Executive Finance Intelligence</p><h1>See the business. Explain the variance. Decide what happens next.</h1><p>An interactive CFO management view connecting financial performance, operating drivers and management priorities. All company and financial information shown here is synthetic and created solely for demonstration.</p></div>
   <div class="review-meta"><div><span>Illustrative Company</span><strong>Atlas Ridge Industrial Group</strong></div><div><span>Review Period</span><strong>August 2026 Month-End</strong></div><div><span>Reporting Basis</span><strong>YTD Actual vs Budget</strong></div><div><span>Management Cadence</span><strong>Monthly Operating Review</strong></div></div>
 </div></section>
 <section class="controls"><div class="shell controls-inner">
-  <div class="view-tabs" role="tablist"><button class="tab active" data-view="overview">Executive Command Center</button><button class="tab" data-view="performance">Performance & Variance</button><button class="tab" data-view="cash">Cash & Working Capital</button><button class="tab disabled" type="button">Forecast & Scenarios</button><button class="tab disabled" type="button">Decision Center</button></div>
-  <div class="filter"><label for="buFilter">Business Unit</label><select id="buFilter"><option>Enterprise</option><option>Industrial Systems</option><option>Field Services</option><option>Digital & Advisory</option></select></div>
-  <div class="filter"><label for="regionFilter">Region</label><select id="regionFilter"><option>All Regions</option><option>Northeast</option><option>Mid-Atlantic</option><option>Southeast</option><option>Midwest</option></select></div>
+  <div class="view-tabs" role="tablist"><button class="tab active" data-view="overview">Executive Command Center</button><button class="tab" data-view="performance">Performance &amp; Variance</button><button class="tab" data-view="cash">Cash &amp; Working Capital</button><button class="tab" data-view="forecast">Forecast &amp; Scenarios</button><button class="tab disabled" type="button">Decision Center</button></div>
+  <div class="filter" id="buFilterWrap"><label for="buFilter">Business Unit</label><select id="buFilter"><option>Enterprise</option><option>Industrial Systems</option><option>Field Services</option><option>Digital &amp; Advisory</option></select></div>
+  <div class="filter" id="regionFilterWrap"><label for="regionFilter">Region</label><select id="regionFilter"><option>All Regions</option><option>Northeast</option><option>Mid-Atlantic</option><option>Southeast</option><option>Midwest</option></select></div>
 </div></section>
 <main id="main" class="shell">
 <section id="overview" class="view active">
@@ -43,8 +43,9 @@
   </div>
   <section class="action-band"><div><h3>Management implication</h3><p id="managementImplication">The apparent revenue miss understates the issue. Margin compression and slower collections are creating a materially larger earnings and liquidity problem.</p></div><div class="action-stat"><span>Revenue Variance</span><strong id="actionRev">-$3.7M</strong></div><div class="action-stat"><span>EBITDA Variance</span><strong id="actionEb">-$4.0M</strong></div><div class="action-stat"><span>Cash Gap</span><strong>-$7.8M</strong></div></section>
 </section>
+
 <section id="performance" class="view">
-  <div class="section-head"><h2>Performance & Variance Analysis</h2><p id="scopeLabel2">Enterprise · All Regions · YTD through August 2026</p></div>
+  <div class="section-head"><h2>Performance &amp; Variance Analysis</h2><p id="scopeLabel2">Enterprise · All Regions · YTD through August 2026</p></div>
   <div class="performance-top">
     <article class="card pad"><div class="card-head"><div><h3>Regional Performance Matrix</h3><p>Revenue variance and EBITDA margin by business unit and region</p></div><span class="tag">Exception Map</span></div><div class="table-wrap"><div class="matrix" id="performanceMatrix"></div></div></article>
     <article class="card pad"><div class="card-head"><div><h3>Operating Drivers</h3><p>Selected drivers behind current performance</p></div><span class="tag">YTD</span></div><div class="driver-bars" id="driverBars"></div></article>
@@ -53,10 +54,11 @@
     <article class="card pad span-6"><div class="card-head"><div><h3>Financial Performance</h3><p>Actual, budget and variance view</p></div><span class="tag">$MM</span></div><div class="table-wrap"><table class="fin-table"><thead><tr><th>Metric</th><th>Actual</th><th>Budget</th><th>Variance</th><th>Variance %</th></tr></thead><tbody id="pnlTable"></tbody></table></div></article>
     <article class="card pad span-6"><div class="card-head"><div><h3>Diagnostic Narrative</h3><p>What the numbers suggest management should investigate</p></div><span class="tag">Explain</span></div><div class="insight-list" id="diagnosticList"></div></article>
   </div>
-  <div class="future"><div><h3>Next build modules</h3><p>The data model already supports the remaining command-center workflow. The remaining modules are staged after performance and liquidity intelligence are validated.</p></div><div class="future-modules"><span>Forecast & Scenarios</span><span>Decision & Action Center</span></div></div>
+  <div class="future"><div><h3>Forward workflow</h3><p>Performance diagnostics flow into liquidity analysis, scenario modeling, and ultimately the management action register.</p></div><div class="future-modules"><span>Cash &amp; Working Capital</span><span>Forecast &amp; Scenarios</span><span>Decision &amp; Action Center</span></div></div>
 </section>
+
 <section id="cash" class="view">
-  <div class="section-head"><h2>Cash & Working Capital Intelligence</h2><p>Enterprise Liquidity View · August 2026 Month-End</p></div>
+  <div class="section-head"><h2>Cash &amp; Working Capital Intelligence</h2><p>Enterprise Liquidity View · August 2026 Month-End</p></div>
   <div class="cash-kpis">
     <article class="kpi"><div class="label">Cash Balance</div><div class="value">$14.6M</div><div class="compare"><span class="pill bad">-$7.8M</span><span>vs expected</span></div></article>
     <article class="kpi"><div class="label">Accounts Receivable</div><div class="value">$37.2M</div><div class="compare"><span class="pill bad">+$7.0M</span><span>vs normalized</span></div></article>
@@ -74,10 +76,51 @@
     <article class="card pad span-6"><div class="card-head"><div><h3>Liquidity Recovery Levers</h3><p>Illustrative management actions and near-term cash opportunity</p></div><span class="tag">$8.1M Potential</span></div><div class="liquidity-levers"><div class="lever"><span>Executive Collections</span><strong>+$5.5M</strong><p>Escalate the largest overdue balances and establish weekly collection ownership.</p><small>Target: 60 days</small></div><div class="lever"><span>Inventory Normalization</span><strong>+$1.2M</strong><p>Reduce slow-moving inventory and align replenishment with current demand.</p><small>Target: 90 days</small></div><div class="lever"><span>AP Cadence</span><strong>+$0.8M</strong><p>Standardize payment timing while preserving critical supplier relationships.</p><small>Target: 30 days</small></div><div class="lever"><span>CapEx Sequencing</span><strong>+$0.6M</strong><p>Resequence discretionary capital projects without impairing operating capacity.</p><small>Target: 90 days</small></div></div></article>
   </div>
   <section class="action-band"><div><h3>CFO decision</h3><p>The company does not need to wait for revenue recovery to improve liquidity. A focused collections program can address the largest source of working-capital drag while operations work separately on margin recovery.</p></div><div class="action-stat"><span>DSO Target</span><strong>47 days</strong></div><div class="action-stat"><span>Cash Release</span><strong>+$5.5M</strong></div><div class="action-stat"><span>13-Week Action Cash</span><strong>$17.0M</strong></div></section>
-  <div class="future"><div><h3>Next build modules</h3><p>With performance and liquidity diagnostics in place, the next stage moves the Command Center from explaining results to modeling what happens next.</p></div><div class="future-modules"><span>Forecast & Scenarios</span><span>Decision & Action Center</span></div></div>
+  <div class="future"><div><h3>Forward workflow</h3><p>Liquidity diagnostics now feed directly into the scenario engine, where management can test whether operational and collection actions are enough to protect earnings and cash.</p></div><div class="future-modules"><span>Forecast &amp; Scenarios</span><span>Decision &amp; Action Center</span></div></div>
 </section>
-<p class="demo-foot">Quant Strata Analytics · Corporate Finance Decision Command Center · Phase 05 Cash & Working Capital Intelligence<br>All entities, transactions, values and management situations are synthetic and illustrative. This demonstration is not financial advice and does not represent an actual client.</p>
+
+<section id="forecast" class="view forecast-view">
+  <div class="section-head"><div><h2>Forecast &amp; Scenario Center</h2><p class="subtle-note">Enterprise decision model · FY2026 outlook based on actuals through August</p></div><div class="scenario-status"><span>Model State</span><strong id="scenarioState">Base Case</strong></div></div>
+  <div class="scenario-toolbar card">
+    <div class="preset-block"><span class="toolbar-label">Scenario Preset</span><div class="scenario-buttons" role="group" aria-label="Scenario presets"><button class="scenario-btn" data-scenario="Upside">Upside</button><button class="scenario-btn active" data-scenario="Base Case">Base Case</button><button class="scenario-btn" data-scenario="Downside">Downside</button></div></div>
+    <div class="toolbar-summary"><span>Approved Phase 02 anchors</span><strong>Upside · Base · Downside</strong></div>
+    <button class="reset-btn" id="resetScenario" type="button">Reset Selected Case</button>
+  </div>
+  <div class="forecast-layout">
+    <aside class="card pad assumption-panel">
+      <div class="card-head"><div><h3>Management Assumptions</h3><p>Adjust the operating drivers and immediately recalculate the outlook.</p></div><span class="tag">Interactive</span></div>
+      <div class="assumption-list">
+        <label class="assumption"><div><span>Pricing Lift</span><output id="pricingOut">1.0%</output></div><input id="pricingInput" type="range" min="0" max="3" step="0.1" value="1.0"><small>Incremental realized pricing versus current run-rate.</small></label>
+        <label class="assumption"><div><span>Volume Change</span><output id="volumeOut">-0.8%</output></div><input id="volumeInput" type="range" min="-5" max="3" step="0.1" value="-0.8"><small>Enterprise demand / volume versus operating plan.</small></label>
+        <label class="assumption"><div><span>Labor Inflation</span><output id="laborOut">3.5%</output></div><input id="laborInput" type="range" min="1" max="7" step="0.1" value="3.5"><small>Annual direct and operating labor cost inflation.</small></label>
+        <label class="assumption"><div><span>Field Services Utilization</span><output id="utilOut">75.0%</output></div><input id="utilInput" type="range" min="65" max="84" step="0.5" value="75"><small>Productive technician utilization across Field Services.</small></label>
+        <label class="assumption"><div><span>DSO</span><output id="dsoOut">47 days</output></div><input id="dsoInput" type="range" min="40" max="58" step="1" value="47"><small>Year-end cash conversion assumption for receivables.</small></label>
+        <label class="assumption"><div><span>Digital &amp; Advisory Growth</span><output id="digitalOut">12.0%</output></div><input id="digitalInput" type="range" min="0" max="22" step="0.5" value="12"><small>Full-year growth contribution from the highest-margin business.</small></label>
+      </div>
+      <div class="model-note"><strong>How to read the model</strong><p>Each preset is an approved anchor case. Slider changes calculate incremental effects around that case so the demo remains tied to the reconciled Phase 02 forecast.</p></div>
+    </aside>
+    <div class="forecast-main">
+      <div class="scenario-kpis">
+        <article class="kpi scenario-kpi"><div class="label">FY2026 Revenue</div><div class="value" id="fcRevenue">$246.5M</div><div class="compare"><span id="fcRevenuePill" class="pill bad">-$5.5M</span><span>vs budget</span></div></article>
+        <article class="kpi scenario-kpi"><div class="label">FY2026 EBITDA</div><div class="value" id="fcEbitda">$24.6M</div><div class="compare"><span id="fcEbitdaPill" class="pill bad">-$6.4M</span><span>vs budget</span></div></article>
+        <article class="kpi scenario-kpi"><div class="label">EBITDA Margin</div><div class="value" id="fcMargin">10.0%</div><div class="compare"><span id="fcMarginPill" class="pill bad">-2.3 pts</span><span>vs budget</span></div></article>
+        <article class="kpi scenario-kpi"><div class="label">Ending Cash</div><div class="value" id="fcCash">$13.1M</div><div class="compare"><span id="fcCashPill" class="pill bad">-$11.4M</span><span>vs budget</span></div></article>
+        <article class="kpi scenario-kpi"><div class="label">DSO</div><div class="value" id="fcDso">47 days</div><div class="compare"><span id="fcDsoPill" class="pill bad">+4 days</span><span>vs target</span></div></article>
+      </div>
+      <div class="grid-12 forecast-grid">
+        <article class="card pad span-8"><div class="card-head"><div><h3>Scenario Outcome Comparison</h3><p>Approved cases plus the current interactive case</p></div><div class="legend scenario-legend"><span><i class="budget"></i>Budget</span><span><i></i>Current</span></div></div><div class="chart-wrap scenario-chart" id="scenarioOutcomeChart"></div></article>
+        <article class="card pad span-4"><div class="card-head"><div><h3>Management Thresholds</h3><p>Decision rules for protecting profitability and liquidity</p></div><span class="tag">Guardrails</span></div><div class="threshold-list" id="thresholdList"></div></article>
+        <article class="card pad span-7"><div class="card-head"><div><h3>Driver Impact vs Selected Preset</h3><p>Incremental change created by your assumption adjustments</p></div><span class="tag" id="driverImpactTag">Base Case</span></div><div class="impact-bars" id="scenarioDriverImpact"></div></article>
+        <article class="card pad span-5"><div class="card-head"><div><h3>Scenario Narrative</h3><p>Automatic executive interpretation of the modeled outcome</p></div><span class="tag">Interpret</span></div><div class="scenario-narrative" id="scenarioNarrative"></div></article>
+        <article class="card pad span-12"><div class="card-head"><div><h3>Approved Scenario Matrix</h3><p>Phase 02 anchors for the FY2026 management outlook</p></div><span class="tag">Reconciled</span></div><div class="table-wrap"><table class="fin-table scenario-table"><thead><tr><th>Scenario</th><th>Revenue</th><th>EBITDA</th><th>EBITDA Margin</th><th>Ending Cash</th><th>DSO</th><th>Management Interpretation</th></tr></thead><tbody id="scenarioTable"></tbody></table></div></article>
+      </div>
+    </div>
+  </div>
+  <section class="action-band forecast-action"><div><h3>Forward decision signal</h3><p id="forecastDecisionText">The Base Case remains above the $12M liquidity floor but does not restore target profitability. Management needs both operating improvement and better collections to create a durable recovery.</p></div><div class="action-stat"><span>Revenue vs Budget</span><strong id="decisionRevenue">-$5.5M</strong></div><div class="action-stat"><span>EBITDA vs Budget</span><strong id="decisionEbitda">-$6.4M</strong></div><div class="action-stat"><span>Ending Cash</span><strong id="decisionCash">$13.1M</strong></div></section>
+  <div class="future"><div><h3>Next build module</h3><p>With the future state now modeled, Phase 07 will convert selected interventions into owners, financial impact, execution status, and an accountable management action register.</p></div><div class="future-modules"><span>Decision &amp; Action Center</span></div></div>
+</section>
+<p class="demo-foot">Quant Strata Analytics · Corporate Finance Decision Command Center · Phase 06 Forecast &amp; Scenario Intelligence<br>All entities, transactions, values, forecasts and management situations are synthetic and illustrative. This demonstration is not financial advice and does not represent an actual client.</p>
 </main>
-<script src="app.js?v=20260910-1" defer></script>
+<script src="app.js?v=20260910-2" defer></script>
 </body>
 </html>
