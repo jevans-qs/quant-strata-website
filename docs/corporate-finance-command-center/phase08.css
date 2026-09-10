@@ -1,0 +1,24 @@
+/* Phase 08 — Executive demo hardening */
+:root{--a11y-muted:#526874;--focus:#1574a8}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.tab:focus-visible,.scenario-btn:focus-visible,.reset-btn:focus-visible,.demo-reset:focus-visible,.filter select:focus-visible,.owner-select:focus-visible,.status-select:focus-visible,.action-check:focus-visible,a:focus-visible,input[type="range"]:focus-visible,.table-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.tab,.scenario-btn,.reset-btn,.demo-reset,.filter select,.owner-select,.status-select{min-height:40px}
+.demo-reset{appearance:none;border:1px solid #b9cad5;background:#f4f8fa;color:#24495f;border-radius:9px;padding:9px 12px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+.demo-reset:hover{background:#e8f1f6;border-color:#93afc0}
+/* Raise contrast for small interface text on light surfaces. */
+.kpi .label,.card-head p,.filter label,.subtle-note,.toolbar-label,.toolbar-summary span,.assumption small,.model-note p,.scenario-status span,.threshold-row span,.driver-row span,.impact-row span,.collection-row,.lever p,.lever small,.ccc-item span,.ccc-item em,.decision-toolbar small,.action-name small,.forecast-compare-row span,.owner-row,.quadrant p,.workflow-complete p,.demo-foot{color:var(--a11y-muted)}
+.axis-text,.wf-label,.cb-label,.age-label,.scenario-bar-label{fill:var(--a11y-muted);color:var(--a11y-muted)}
+.table-wrap{scrollbar-gutter:stable;-webkit-overflow-scrolling:touch}
+.table-wrap[tabindex="0"]{border-radius:8px}
+.view[role="tabpanel"]:focus{outline:none}
+.view[role="tabpanel"]:focus-visible{outline:3px solid var(--focus);outline-offset:6px;border-radius:8px}
+.is-muted{opacity:.55}.filter.is-muted select{cursor:not-allowed}
+.enterprise-scope-note{display:none;font-size:9px;color:#526874;font-weight:700;white-space:nowrap}.controls.enterprise-mode .enterprise-scope-note{display:inline-block}
+.noscript-note{max-width:1480px;margin:14px auto;padding:12px 28px;color:#7a2525;background:#fff0f0;border:1px solid #edcaca;border-radius:10px;font-size:12px}
+.demo-public-cta{margin:22px 0 0;background:linear-gradient(120deg,#06243c,#0e466f);color:#fff;border-radius:16px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 12px 30px rgba(6,36,60,.12)}
+.demo-public-cta .eyebrow{margin-bottom:6px}.demo-public-cta h2{font-size:19px;margin:0 0 5px;letter-spacing:-.02em}.demo-public-cta p{margin:0;color:#cde0ed;font-size:11px;line-height:1.5;max-width:760px}.demo-cta-actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}.demo-cta-primary,.demo-cta-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:9px;padding:9px 13px;font-size:11px;font-weight:800;text-decoration:none;white-space:nowrap}.demo-cta-primary{background:#fff;color:#07304d}.demo-cta-primary:hover{background:#eaf2f7}.demo-cta-secondary{border:1px solid rgba(255,255,255,.35);color:#fff}.demo-cta-secondary:hover{background:rgba(255,255,255,.08)}
+.qa-badge{white-space:nowrap;background:#e7f5ed;color:#24734d;border-radius:999px;padding:8px 10px;font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:850}
+@media(max-width:900px){.demo-public-cta{align-items:flex-start;flex-direction:column}.demo-cta-actions{justify-content:flex-start}.controls-inner{gap:12px}}
+@media(max-width:720px){.tab,.scenario-btn,.reset-btn,.demo-reset,.filter select,.owner-select,.status-select{min-height:44px}.demo-reset{width:100%}.enterprise-scope-note{width:100%}.demo-public-cta{padding:18px}.demo-cta-actions{width:100%;flex-direction:column}.demo-cta-primary,.demo-cta-secondary{width:100%}.table-wrap{position:relative}.action-register{min-width:940px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{.topbar,.controls,.demo-public-cta,.demo-reset{display:none!important}.hero{background:#fff!important;color:#122333!important;border-bottom:2px solid #06243c}.hero p,.eyebrow{color:#526874!important}.view{display:none!important}.view.active{display:block!important}.card,.kpi,.action-band,.workflow-complete{box-shadow:none!important;break-inside:avoid}.action-band{background:#f2f6f8!important;color:#122333!important}.action-band p,.action-stat span{color:#526874!important}}
