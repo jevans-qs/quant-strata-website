@@ -16,6 +16,12 @@ const COLLATERAL_DOWNLOADS = {
   }
 };
 
+const caseStudyButton = document.querySelector('[data-download="caseStudy"]');
+if (caseStudyButton) {
+  const description = caseStudyButton.parentElement.querySelector('p');
+  if (description) description.textContent = 'A concise downloadable executive case study covering the business problem, decision system, findings, action logic, and implementation approach.';
+}
+
 async function downloadEncodedPdf(asset) {
   const response = await fetch(asset.href);
   if (!response.ok) throw new Error('Unable to retrieve collateral');
