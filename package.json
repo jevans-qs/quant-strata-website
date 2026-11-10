@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "build:procurement": "node scripts/build-procurement.mjs",
+    "refresh:procurement": "python3 scripts/refresh-procurement.py",
+    "test:procurement": "node --test tests/procurement.test.mjs"
   }
 }

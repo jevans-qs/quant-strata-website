@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Philadelphia Procurement Intelligence Command Center | Quant Strata</title>
+  <meta name="description" content="Explore Philadelphia professional services, public works, supplies and equipment, contract listings, and procurement geography in Quant Strata’s public-data proof of concept.">
+  <link rel="canonical" href="https://q-strata.com/philadelphia-procurement-command-center/">
+  <meta name="theme-color" content="#06243c">
+  <link rel="icon" href="../assets/favicon-32.png">
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to Dashboard</a>
+  <header class="masthead">
+    <a class="brand" href="../" aria-label="Quant Strata Home"><img src="../assets/quant-strata-logo.png" alt="Quant Strata"></a>
+    <span class="masthead-rule"></span><span class="product-name">PUBLIC SECTOR INTELLIGENCE</span>
+    <nav aria-label="Demo Navigation"><a href="../insights/">Insights</a><a href="./white-paper/">Read White Paper →</a><a class="contact-link" href="../contact/">Let’s Talk →</a></nav>
+  </header>
+  <section class="hero">
+    <div><p class="eyebrow"><span class="status-dot"></span> PHILADELPHIA · PUBLIC DATA PROOF OF CONCEPT</p><h1>Procurement Intelligence<br><span>Command Center.</span></h1><p class="hero-description">Connect opportunities, contract records, and place.<br>Find the work. Understand the context. Follow the evidence.</p></div>
+    <div class="snapshot"><span class="micro-label">DATA SNAPSHOT</span><strong id="snapshot-date">Loading Public Records…</strong><span>Independent demonstration by Quant Strata</span><button class="text-button light" id="coverage-jump">View Source Coverage →</button></div>
+  </section>
+  <div class="scope-bar"><div class="view-tabs" role="group" aria-label="Record Views"><button class="view-tab active" data-view="pipeline">Opportunity Pipeline</button><button class="view-tab" data-view="portfolio">Contract Portfolio</button><button class="view-tab" data-view="all">All Records</button></div><span class="snapshot-label">Public Source Snapshot <span aria-hidden="true">/</span> <a href="./white-paper/">Methodology</a></span></div>
+  <main id="workspace" class="workspace">
+    <aside class="filters" aria-label="Procurement Filters">
+      <div class="filter-title"><h2>Explore the Records</h2><button class="text-button" id="reset">Reset</button></div>
+      <label class="field-label" for="search">SEARCH</label><div class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Keyword, ID, or vendor" autocomplete="off"></div>
+      <div class="filter-block"><label class="field-label" id="type-label">CONTRACT TYPE</label><details class="multi-select" id="type-dropdown"><summary aria-labelledby="type-label type-summary"><span id="type-summary">All Contract Types</span><span aria-hidden="true">⌄</span></summary><div class="dropdown-options" id="type-options"></div></details><p class="filter-hint">Select multiple types to compare them together.</p></div>
+      <div class="filter-block"><label class="field-label" for="department">DEPARTMENT / AGENCY</label><select id="department"><option value="">All Departments</option></select></div>
+      <div class="filter-block"><label class="field-label" id="stage-label">RECORD STAGE</label><details class="multi-select" id="stage-dropdown"><summary aria-labelledby="stage-label stage-summary"><span id="stage-summary">Open + Forecast</span><span aria-hidden="true">⌄</span></summary><div class="dropdown-options" id="stage-options"></div></details></div>
+      <div class="filter-block"><label class="field-label" for="entity">ENTITY SCOPE</label><select id="entity"><option value="city">City of Philadelphia</option><option value="all">City + Partner Agencies</option><option value="partner">Partner Agencies Only</option></select></div>
+      <div class="filter-block"><label class="field-label" for="amount">PUBLISHED VALUE RANGE</label><select id="amount"><option value="">Any Published / Unknown Value</option><option value="under100k">Under $100,000</option><option value="100k1m">$100,000 – $1 Million</option><option value="over1m">$1 Million and Above</option><option value="unknown">Value Not Published</option></select><p class="filter-hint">Ranges match when they overlap the selected band.</p></div>
+      <div class="filter-block"><label class="field-label" for="geography">GEOGRAPHY</label><select id="geography"><option value="">All Locations, Including Unlocated</option><option value="mapped">Identified Facility Only</option><option value="unlocated">Location Not Identified</option></select></div>
+      <div class="filter-block"><label class="field-label" for="source">DATA SOURCE</label><select id="source"><option value="">All Record Sources</option></select></div>
+      <div class="filter-note"><span class="micro-label">BUILT FOR TRANSPARENCY</span><p>Every record links to its public source. A forecast, a notice of intent, and an executed listing represent different stages.</p><button class="text-button" id="show-coverage">Sources & Coverage →</button></div>
+    </aside>
+    <div class="dashboard">
+      <div class="dashboard-heading"><div><p class="eyebrow ink">CITYWIDE PROCUREMENT EXPLORER</p><h2 id="view-title">Opportunity Pipeline</h2><p id="result-description" role="status" aria-live="polite">Preparing the public-data snapshot.</p></div><button class="button secondary" id="export" disabled>↓ Export Filtered Records</button></div>
+      <div id="load-error" class="error-banner" hidden></div>
+      <div class="kpi-grid" id="kpis" aria-label="Filtered Record Summary"></div>
+      <div class="coverage-banner"><span class="coverage-icon" aria-hidden="true">i</span><p><strong>A Traceable View of Public Records.</strong> Coverage is still being expanded. Record counts represent source listings, not a verified count of every City contract.</p><button class="text-button" id="banner-coverage">See Coverage →</button></div>
+      <div class="analysis-grid">
+        <section class="panel map-panel" aria-labelledby="map-title">
+          <div class="panel-header"><div><p class="eyebrow ink">GEOSPATIAL EXPLORER</p><h3 id="map-title">Put the Work in Context.</h3></div><span class="small-tag">OFFICIAL CITY BOUNDARIES</span></div>
+          <div class="map-toolbar"><div class="segmented" role="group" aria-label="Map Layer"><button class="active" data-layer="procurement">Procurement Locations</button><button data-layer="capital">Capital Project Context</button></div><span id="map-count"></span></div>
+          <div class="map-canvas"><svg id="map" viewBox="0 0 700 500" role="img" aria-labelledby="map-svg-title map-svg-desc"><title id="map-svg-title">Philadelphia Council Districts and Public Project Locations</title><desc id="map-svg-desc">Select a council district to filter records with an identified facility. Unlocated opportunities remain available in the all-locations view.</desc></svg><div class="map-buttons" aria-label="Map Zoom"><button id="zoom-in" aria-label="Zoom In">+</button><button id="zoom-out" aria-label="Zoom Out">−</button><button id="zoom-reset" aria-label="Reset Map Extent">⌂</button></div><div class="north" aria-label="North">N<span>↑</span></div><span class="map-credit">City of Philadelphia · Council Districts 2024</span><div class="map-popup" id="map-popup" hidden></div></div>
+          <div class="map-footer"><div class="map-legend"><span><i class="facility"></i>Named Facility Association</span><span><i class="context"></i>Capital Project Context</span></div><p id="map-note">Records without an identified facility remain in the explorer. Pins identify facilities, not verified project footprints.</p></div>
+        </section>
+        <aside class="right-panels">
+          <section class="panel signals-panel" aria-labelledby="signals-title"><div class="panel-header"><div><p class="eyebrow ink">DECISION SUPPORT</p><h3 id="signals-title">What Deserves Attention?</h3></div><span class="signal-icon" aria-hidden="true">→</span></div><div id="signals" class="signals"></div></section>
+          <section class="panel mix-panel" aria-labelledby="mix-title"><div class="panel-header"><div><p class="eyebrow ink">PORTFOLIO COMPOSITION</p><h3 id="mix-title">Contract Type Mix</h3></div></div><div id="type-chart" class="bar-chart"></div><p class="chart-note">Count of matching source records.</p></section>
+        </aside>
+      </div>
+      <section class="panel records-panel" aria-labelledby="records-title"><div class="panel-header"><div><p class="eyebrow ink">FOLLOW THE EVIDENCE</p><h3 id="records-title">Procurement Record Explorer</h3></div><label class="sort-label">Sort <select id="sort"><option value="relevance">Open, Forecast, Then Other Stages</option><option value="due">Response Deadline</option><option value="newest">Most Recently Posted</option><option value="value">Highest Published Upper Value</option><option value="department">Department</option></select></label></div><div class="active-filters" id="active-filters"></div><div class="table-scroll"><table><thead><tr><th scope="col">Opportunity / Contract Record</th><th scope="col">Type & Department</th><th scope="col">Stage</th><th scope="col">Timing</th><th scope="col">Published Value</th><th scope="col"><span class="sr-only">Details</span></th></tr></thead><tbody id="records-body"></tbody></table></div><div id="empty-state" class="empty-state" hidden><strong>No Records Match These Filters.</strong><p>Try another stage, include unlocated records, or broaden your search.</p><button class="button secondary" id="empty-reset">Reset Filters</button></div><div class="pagination"><span id="page-info"></span><div><button id="prev-page" class="button secondary">← Previous</button><button id="next-page" class="button secondary">Next →</button></div></div></section>
+      <section id="coverage" class="panel coverage-panel" aria-labelledby="coverage-title"><div class="panel-header"><div><p class="eyebrow ink">SOURCES, PERIODS & LIMITATIONS</p><h3 id="coverage-title">Know What the Data Covers.</h3></div><a class="text-button" href="./white-paper/">Read the Methodology →</a></div><p class="coverage-intro">These sources serve different purposes and reporting periods. Historical amounts are not current City spending; notices and forecasts are not executed awards.</p><div class="table-scroll"><table class="source-table"><thead><tr><th>Public Source</th><th>Loaded</th><th>Period & Interpretation</th></tr></thead><tbody id="source-body"></tbody></table></div><div class="coverage-gaps"><strong>Coverage Still to Add</strong><ul id="coverage-gaps"></ul></div></section>
+      <footer class="demo-footer"><span>QUANT STRATA <i> / </i> PUBLIC PROGRAM & PROCUREMENT ANALYTICS</span><p>An independent public-data proof of concept. Not an official City service or endorsement. Confirm deadlines and requirements at the source.</p><a href="../public-program-procurement-analytics/">Explore Our Procurement Analytics Services →</a></footer>
+    </div>
+  </main>
+  <dialog id="record-dialog" aria-labelledby="detail-title"><div class="dialog-top"><span class="eyebrow ink" id="detail-eyebrow">PUBLIC SOURCE RECORD</span><button id="close-dialog" class="close-button" aria-label="Close Record Details">×</button></div><div id="detail-content"></div></dialog>
+  <noscript><div class="error-banner">Enable JavaScript to use the filters and map. <a href="./white-paper/">Read the sources and methodology here.</a></div></noscript>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

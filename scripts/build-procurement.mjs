@@ -1,0 +1,11 @@
+import {cp,mkdir,readFile,writeFile} from 'node:fs/promises';
+import {gunzipSync} from 'node:zlib';
+const source = new URL('../src/procurement/',import.meta.url);
+const output = new URL('../docs/philadelphia-procurement-command-center/',import.meta.url);
+await mkdir(output,{recursive:true});
+await cp(source,output,{recursive:true});
+const data=JSON.parse(gunzipSync(await readFile(new URL('data/records.json.gz',source))));
+const tokens={AS_OF:new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'America/New_York'}).format(new Date(data.as_of)),RECORD_COUNT:data.records.length.toLocaleString('en-US'),OPEN_COUNT:data.stage_counts.Open.toLocaleString('en-US'),FORECAST_COUNT:data.stage_counts.Forecast.toLocaleString('en-US'),PROJECT_COUNT:data.projects.length.toLocaleString('en-US')};
+const template=await readFile(new URL('white-paper/index.html',source),'utf8');
+await writeFile(new URL('white-paper/index.html',output),template.replace(/\{\{([A-Z_]+)\}\}/g,(_,key)=>tokens[key]??key));
+console.log(`Built Philadelphia procurement proof: ${data.records.length} public source records.`);

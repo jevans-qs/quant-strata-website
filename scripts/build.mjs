@@ -1,8 +1,9 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, writeFile } from "node:fs/promises";
 import { pages } from "../src/pages.mjs";
 
 const out = new URL("../docs/", import.meta.url);
-await rm(out, { recursive: true, force: true });
+// Independently maintained proof demos and collateral also live in docs/.
+// Regenerate owned pages without deleting those existing published resources.
 await mkdir(out, { recursive: true });
 
 const nav = [
@@ -71,7 +72,7 @@ function shell(page) {
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="${socialImage}">
   <script type="application/ld+json">${organizationSchema}</script>
-  <link rel="stylesheet" href="${prefix}styles.css?v=20260902-1">
+  <link rel="stylesheet" href="${prefix}styles.css?v=20260902-1">${["", "services", "business-advisory", "analytics-technology", "managed-performance-intelligence"].includes(page.route) ? `\n  <link rel="stylesheet" href="${prefix}proof-demo-links.css?v=20260910-1">` : ""}${["services", "managed-performance-intelligence", "insights"].includes(page.route) ? `\n  <link rel="stylesheet" href="${prefix}white-paper-links.css?v=20260910-1">` : ""}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to Main Content</a>
@@ -95,7 +96,7 @@ await writeFile(new URL("CNAME", out), "q-strata.com\n");
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map((page) => `  <url><loc>${siteBase}${page.route ? `${page.route}/` : ""}</loc><lastmod>2026-09-02</lastmod></url>`).join("\n")}
+${[...pages.map(page => page.route), "corporate-finance-command-center", "case-studies/corporate-finance-decision-command-center", "philadelphia-procurement-command-center", "philadelphia-procurement-command-center/white-paper"].map(route => `  <url><loc>${siteBase}${route ? `${route}/` : ""}</loc><lastmod>${route?.startsWith("philadelphia-procurement") ? "2026-11-10" : "2026-09-02"}</lastmod></url>`).join("\n")}
 </urlset>\n`;
 await writeFile(new URL("sitemap.xml", out), sitemap);
 await writeFile(new URL("robots.txt", out), `User-agent: *\nAllow: /\nSitemap: ${siteBase}sitemap.xml\n`);
@@ -122,3 +123,4 @@ const notFound = {
   content: `<section class="interior-hero"><div class="page-width"><p class="breadcrumbs"><a href="./">Home</a> / 404</p><h1>The Page You Requested Could Not Be Found.</h1><p class="hero-summary">The address may have changed. Return to the Quant Strata homepage or explore our advisory and analytics services.</p><div class="hero-actions"><a class="button button-primary" href="./">Return Home →</a><a class="button button-ghost" href="./services/">Explore Our Services</a></div></div></section>`
 };
 await writeFile(new URL("404.html", out), shell(notFound));
+await import("./build-procurement.mjs");
